@@ -34,8 +34,16 @@ require 'spec_helper'
 
     describe '#in_journey?' do
       it "is not in journey before interacting with a barrier" do
-        expect(subject.in_journey?).to be_falsey  
+        expect(subject.in_journey?).to be_falsey
       end
+    end
+
+    describe '#touch_in' do
+      it 'changes card status to in journey' do
+        subject.touch_in
+        expect(subject.in_journey?).to be_truthy
+      end
+
     end
 
   end
