@@ -6,4 +6,14 @@ require 'spec_helper'
       expect(subject.balance).to eq(0)
     end
 
+    describe '#top_up' do
+      it 'balance is updated when topped up' do
+        subject.top_up(10)
+        expect(subject.balance).to eq(10)
+      end
+
+      
+    end
+
+
   end
