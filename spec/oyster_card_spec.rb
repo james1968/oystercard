@@ -40,13 +40,21 @@ require 'spec_helper'
 
     describe '#touch_in' do
       it 'changes card status to in journey' do
+        subject = OysterCard.new(OysterCard::MINIMUM_FARE)
         subject.touch_in
         expect(subject.in_journey?).to be_truthy
       end
+
+      it 'checks to ensure balance is greater than minimum charge' do
+        expect{subject.touch_in}.to raise_error "Insufficient money on card"
+      end
+
+
     end
 
     describe '#touch_out' do
       it "changes card status back to in journey = false" do
+        subject = OysterCard.new(OysterCard::MINIMUM_FARE)
         subject.touch_in
         subject.touch_out
         expect(subject.in_journey?).to be_falsey
