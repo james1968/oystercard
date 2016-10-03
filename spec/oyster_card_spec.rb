@@ -32,4 +32,10 @@ require 'spec_helper'
       end
     end
 
+    describe '#in_journey?' do
+      it "is not in journey before interacting with a barrier" do
+        expect(subject.in_journey?).to be_falsey  
+      end
+    end
+
   end
