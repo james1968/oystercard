@@ -23,4 +23,13 @@ require 'spec_helper'
         expect{subject.top_up(10)}.to raise_error "Exceeded maximum balance of £#{maximum}"
       end
     end
+
+    describe '#debit' do
+      it 'debits the balance when used for travel' do
+        subject = OysterCard.new(10)
+        expect(subject.debit(10)).to eq(0)
+
+      end
+    end
+
   end
