@@ -43,7 +43,14 @@ require 'spec_helper'
         subject.touch_in
         expect(subject.in_journey?).to be_truthy
       end
+    end
 
+    describe '#touch_out' do
+      it "changes card status back to in journey = false" do
+        subject.touch_in
+        subject.touch_out
+        expect(subject.in_journey?).to be_falsey
+      end
     end
 
   end
