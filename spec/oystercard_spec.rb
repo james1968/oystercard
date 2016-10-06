@@ -51,7 +51,7 @@ describe Oystercard do
         end
 
         it 'will add location to entry station' do
-          expect(subject.entry_station).to eq :entry_station
+          expect(subject.entry_station).to eq entry_station
         end
       end
 
@@ -62,15 +62,15 @@ describe Oystercard do
         end
 
         it 'will add location to exit station' do
-          expect(subject.current_journey).to include {exit station: :exit_station}
+          expect(subject.journeys).to include {exit station: :exit_station}
         end
 
-        let(:current_journey){ {entry_station: :entry_station, exit_station: :exit_station} }
+        let(:journey){ {entry_station: :entry_station, exit_station: :exit_station} }
         it 'will add the journey to the journeys list' do
           subject.top_up(described_class::MINIMUM_BALANCE)
           subject.touch_in(:entry_station)
           subject.touch_out(:exit_station)
-          expect(subject.journeys).to include current_journey
+          expect(subject.journeys).to include journey
         end
 
     end

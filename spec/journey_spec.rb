@@ -12,9 +12,9 @@ describe Journey do
       expect(subject.exit_station).to eq nil
     end
 
-    it 'has an empty current journey' do
-      expect(subject.current_journey).to be_empty
-    end
+    #it 'has an empty current journey' do
+  #    expect(subject.journeys).to be_empty
+  #  end
   end
 
   describe '#complete?' do
@@ -58,15 +58,5 @@ describe Journey do
     expect(subject).to be_complete
   end
   end
-
-
-
-# starting a journey
-
-# finishing a journey
-
-# calculation the fair of a journey
-
-# returning wether or not the journey is complete
 
 end

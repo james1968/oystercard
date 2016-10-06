@@ -3,20 +3,19 @@
 class Journey
 PENALTY_FARE = 6
 
-attr_reader :entry_station, :exit_station, :current_journey
+attr_reader :entry_station, :exit_station
 
   def initialize(*entry_station)
     @entry_station = nil
     @exit_station = nil
-    @current_journey = Hash.new
   end
 
-  def finish(station)
-    @exit_station = station
+  def finish(exit_station)
+    @exit_station = exit_station
   end
 
-  def start(station)
-    @entry_station = station
+  def start(entry_station)
+    @entry_station = entry_station
   end
 
   def complete?
