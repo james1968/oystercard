@@ -3,11 +3,13 @@
 class Journey
 PENALTY_FARE = 6
 
-attr_reader :entry_station, :exit_station
+attr_reader :entry_station, :exit_station, :current_journey, :journeys
 
   def initialize(*entry_station)
     @entry_station = nil
     @exit_station = nil
+    @current_journey = Hash.new
+    @journeys = []
   end
 
   def finish(exit_station)
@@ -22,6 +24,14 @@ attr_reader :entry_station, :exit_station
     !!exit_station
   end
 
+  def add_journey
+    @current_journey = {entry_station: entry_station, exit_station: exit_station}
+    @journeys << @current_journey
+  end
+
+  def in_journey?
+    !!entry_station
+  end
 
   def fare(fare = PENALTY_FARE)
       if @entry_station == nil || @exit_station == nil

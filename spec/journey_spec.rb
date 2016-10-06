@@ -12,14 +12,20 @@ describe Journey do
       expect(subject.exit_station).to eq nil
     end
 
-    #it 'has an empty current journey' do
-  #    expect(subject.journeys).to be_empty
-  #  end
+    it 'has an empty current journey' do
+     expect(subject.journeys).to be_empty
+    end
   end
 
   describe '#complete?' do
     it "knows if a journey is not complete" do
     expect(subject).not_to be_complete
+    end
+  end
+
+  describe '#in_journey?' do
+    it 'will be initially set to false' do
+      expect(subject.in_journey?).to eq false
     end
   end
 
@@ -33,6 +39,7 @@ describe Journey do
     it 'it is set to entry_station' do
       expect(subject.start(station)).to eq(station)
     end
+
   end
 
   describe '#fare' do
@@ -57,6 +64,14 @@ describe Journey do
     it "knows if a journey is complete" do
     expect(subject).to be_complete
   end
+
+  describe "#add_journey" do
+
+    it 'will add entry and exit stations to journey log' do
+      expect(subject.journeys).to include {exit station: :exit_station}
+    end
+  end
+
   end
 
 end
