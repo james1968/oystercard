@@ -9,20 +9,25 @@ attr_reader :entry_station, :exit_station, :current_journey
     @entry_station = nil
     @exit_station = nil
     @current_journey = Hash.new
+    @journeys = []
   end
 
-  def finish(station)
-    @exit_station = station
+  def finish(exit_station)
+    @exit_station = exit_station
   end
 
-  def start(station)
-    @entry_station = station
+  def start(entry_station)
+    @entry_station = entry_station
   end
 
   def complete?
     !!exit_station
   end
 
+  def add_journey
+    @current_journey = {entry_station: entry_station, exit_station: exit_station}
+    @journeys << @current_journey
+  end
 
   def fare(fare = PENALTY_FARE)
       if @entry_station == nil || @exit_station == nil
