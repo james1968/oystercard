@@ -1,4 +1,5 @@
 require_relative 'journey'
+require_relative 'journey_log'
 
 class Oystercard
   attr_reader :balance
@@ -11,7 +12,6 @@ class Oystercard
 
   def initialize(balance = 0)
     @balance = balance
-    @journey = Journey.new
     @journey_log = JourneyLog.new
   end
 
@@ -27,9 +27,8 @@ class Oystercard
 
   def touch_out(exit_station)
     @journey_log.finish(exit_station)
-    deduct(@journey.fare)
-    @journey_log.reset
-    #@journey.add_journey
+    deduct(@journey_log.fare)
+    #@journey_log.reset
   end
 
   private

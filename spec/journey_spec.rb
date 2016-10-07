@@ -42,11 +42,11 @@ describe Journey do
 
   end
 
-  describe '#fare' do
-    it 'has a penalty fare by default' do
-      expect(subject.fare).to eq Journey::PENALTY_FARE
-    end
-  end
+  #describe '#fare' do
+  #  it 'has a penalty fare by default' do
+  #    expect(subject.fare).to eq Journey::PENALTY_FARE
+  #  end
+  #end
 
   context 'give an entry exit station' do
   let(:entry_station) {double :entry_station}
@@ -57,9 +57,9 @@ describe Journey do
     subject.finish(exit_station)
   end
 
-    it 'calculates a fare' do
-      expect(subject.fare).to eq 1
-    end
+  #  it 'calculates a fare' do
+  #    expect(subject.fare).to eq 1
+  #  end
 
     it "knows if a journey is complete" do
     expect(subject).to be_complete

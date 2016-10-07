@@ -25,6 +25,18 @@ describe JourneyLog do
     it 'records a journey' do
       expect(subject.journeys).to include {exit station: :exit_station}
       end
+
+  describe '#fare' do
+
+    it 'calculates a fare' do
+        expect(subject.fare).to eq JourneyLog::PENALTY_FARE
+    end
+
+
+    it 'has a penalty fare by default' do
+          expect(subject.fare).to eq JourneyLog::PENALTY_FARE
+        end
+    end
   end
 
 end

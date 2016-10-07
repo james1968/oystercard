@@ -42,7 +42,7 @@ describe Oystercard do
 
     describe '#touch_out' do
 
-        it 'will reduce balance by minimum fare' do
+        it 'will reduce balance by the fare' do
           expect{subject.touch_out(:exit_station)}.to change {subject.balance}.by(-described_class::PENALTY_FARE)
         end
 
